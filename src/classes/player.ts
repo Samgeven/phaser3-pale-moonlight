@@ -61,8 +61,8 @@ export class Player extends Actor {
     });
 
     // PHYSICS
-    this.getBody().setSize(30, 30);
-    this.getBody().setOffset(8, 0);
+    this.getBody().setSize(20, 30);
+    this.getBody().setOffset(14, 0);
 
     this.initAnimations()
 

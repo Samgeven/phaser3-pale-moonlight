@@ -37,9 +37,9 @@ export class Actor extends Physics.Arcade.Sprite {
 
 	protected checkFlip(): void {
     if (this.body.velocity.x < 0) {
-      this.scaleX = -1;
+      this.flipX = true;
     } else {
-      this.scaleX = 1;
+      this.flipX = false;
     }
   }
 

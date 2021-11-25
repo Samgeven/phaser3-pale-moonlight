@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Zombie } from '../../classes/enemies/zombie';
 import { Player } from '../../classes/player';
 
 export class Level1 extends Phaser.Scene {
@@ -6,6 +7,7 @@ export class Level1 extends Phaser.Scene {
   private tileset!: Phaser.Tilemaps.Tileset;
   private groundLayer!: Phaser.Tilemaps.TilemapLayer;
   private player!: Player;
+  private zombie!: Zombie;
 
   constructor() {
     super('level-1-scene');
@@ -28,12 +30,17 @@ export class Level1 extends Phaser.Scene {
   create() {
     this.initMap()
     this.player = new Player(this, 100, 500);
+    this.zombie = new Zombie(this, 200, 500, 'zombie', this.player);
+    console.log(this.zombie)
     
     this.physics.add.collider(this.player, this.groundLayer);
+    this.physics.add.collider(this.zombie, this.groundLayer);
+    this.physics.add.collider(this.zombie, this.player);
     this.initCamera()
   }
 
   update(): void {
     this.player.update();
+    this.zombie.update();
   }
 }

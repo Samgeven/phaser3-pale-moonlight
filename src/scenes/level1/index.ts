@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { Zombie } from '../../classes/enemies/zombie';
-import { Player } from '../../classes/player';
+import { Player } from '../../classes/player/';
 
 export class Level1 extends Phaser.Scene {
   private map!: Phaser.Tilemaps.Tilemap;
@@ -35,12 +35,11 @@ export class Level1 extends Phaser.Scene {
     
     this.physics.add.collider(this.player, this.groundLayer);
     this.physics.add.collider(this.zombie, this.groundLayer);
-    this.physics.add.collider(this.zombie, this.player);
     this.initCamera()
   }
 
-  update(): void {
-    this.player.update();
+  update(dt: number): void {
+    this.player.update(dt);
     this.zombie.update();
   }
 }

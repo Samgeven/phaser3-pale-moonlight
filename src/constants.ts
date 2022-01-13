@@ -1,3 +1,4 @@
 export enum EVENTS_NAME {
-  attack = 'attack'
+  attack = 'attack',
+  enemyAttack = 'enemy-attack'
 }

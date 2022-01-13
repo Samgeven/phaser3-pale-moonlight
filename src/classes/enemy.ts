@@ -37,6 +37,7 @@ export class Enemy extends Actor {
         this.disableBody(true, false);
   
         this.scene.time.delayedCall(300, () => {
+          this.scene.game.events.removeListener('update')
           this.destroy();
         });
       }
